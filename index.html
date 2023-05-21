@@ -31,6 +31,12 @@
     </style>
 </head>
 <body>
+    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="consulate_appointment_bot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+<script type="text/javascript">
+  function onTelegramAuth(user) {
+    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+  }
+</script>
     <button id="infoButton">Show User Info</button>
 
     <script>
@@ -47,6 +53,18 @@
                 alert(JSON.stringify(userData));
             };
         };
+        // Получаем поле ввода
+        var inputField = document.getElementById('inputField');
+
+        // Добавляем обработчик события ввода
+        inputField.addEventListener('input', function(event) {
+          // Получаем текущее значение поля ввода
+          var inputValue = event.target.value;
+
+          // Выводим значение в консоль
+          console.log(inputValue);
+        });
+
     </script>
 </body>
 </html>
